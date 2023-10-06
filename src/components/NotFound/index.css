@@ -1,0 +1,13 @@
+/* Write your CSS here */
+.not-found-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-not-found-text {
+  color: #ffffff;
+  font-size: 41px;
+  font-weight: 600;
+  font-family: 'Bree Serif';
+}

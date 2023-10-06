@@ -1,0 +1,67 @@
+/* Write your CSS here */
+.match-card-bg {
+  background-color: #1e293b;
+  border-radius: 5px;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.competing-team-title {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 500;
+  font-family: 'Bree Serif';
+}
+
+.date-text {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 500;
+  font-family: 'Bree Serif';
+}
+
+.venue-similar-text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Bree Serif';
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.competing-team-logo {
+  width: 220px;
+}
+
+.span-sub-text {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 300;
+  font-family: 'Bree Serif';
+}
+
+.man-of-match-text {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 400;
+  font-family: 'Bree Serif';
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.latest-match-left-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+}
+
+.latest-match-right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 30%;
+}
