@@ -1,12 +1,9 @@
 // Write your code here
 import {Component} from 'react'
-
 import Loader from 'react-loader-spinner'
-
 import LatestMatch from '../LatestMatch'
-
 import MatchCard from '../MatchCard'
-
+import PieChartComponent from '../PiChartComponent'
 import './index.css'
 
 class TeamMatches extends Component {
@@ -15,6 +12,7 @@ class TeamMatches extends Component {
     latestMatch: {},
     recentMatchesList: [],
     eachTeamId: '',
+    statistics: [],
     isLoading: true,
   }
 
@@ -58,13 +56,36 @@ class TeamMatches extends Component {
       id: eachMatch.id,
     }))
 
+    const matchResult = teamMatchDetails.recentMatches.reduce(
+      (acc, eachMatch) => {
+        if (eachMatch.match_status === 'Won') {
+          acc.Won = (acc.Won || 0) + 1
+        } else {
+          acc.Lost = (acc.Lost || 0) + 1
+        }
+        return acc
+      },
+      {},
+    )
+
+    const TeamChartResult = [
+      {name: 'Won', value: matchResult.Won},
+      {name: 'Lost', value: matchResult.Lost},
+    ]
+
     this.setState({
       teamMatches: teamMatchDetails,
       latestMatch: latestMatchSection,
       recentMatchesList: recentMatchesBox,
       eachTeamId: id,
       isLoading: false,
+      statistics: TeamChartResult,
     })
+  }
+
+  onClickBackButton = () => {
+    const {history} = this.props
+    history.replace('/')
   }
 
   render() {
@@ -74,6 +95,7 @@ class TeamMatches extends Component {
       recentMatchesList,
       eachTeamId,
       isLoading,
+      statistics,
     } = this.state
     const {teamBannerUrl} = teamMatches
 
@@ -92,6 +114,7 @@ class TeamMatches extends Component {
             />
             <p className="latest-matches-title">Latest Matches</p>
             <LatestMatch latestMatchDetails={latestMatch} />
+
             <ul className="match-card-matches-list">
               {recentMatchesList.map(eachRecentMatch => (
                 <MatchCard
@@ -100,8 +123,16 @@ class TeamMatches extends Component {
                 />
               ))}
             </ul>
+            <PieChartComponent statistics={statistics} />
           </>
         )}
+        <button
+          type="button"
+          className="back-button"
+          onClick={this.onClickBackButton}
+        >
+          Back
+        </button>
       </div>
     )
   }

@@ -1,9 +1,5 @@
-// Write your code here
-
 import {Component} from 'react'
-
 import Loader from 'react-loader-spinner'
-
 import TeamCard from '../TeamCard'
 
 import './index.css'
