@@ -30,7 +30,7 @@ class Home extends Component {
     return (
       <div className="ipl-dashboard-bg">
         {isLoading ? (
-          <div testid="loader">
+          <div>
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (

@@ -3,7 +3,7 @@ import {PieChart, Pie, Cell, Tooltip, Legend} from 'recharts'
 const PieChartComponent = props => {
   const {statistics} = props
 
-  const COLORS = ['#18ed66', '#e31a1a']
+  const COLORS = ['#18ed66', '#e31a1a', 'black']
 
   return (
     <PieChart width={400} height={400}>

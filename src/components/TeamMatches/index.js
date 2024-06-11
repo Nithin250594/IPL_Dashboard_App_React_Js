@@ -60,9 +60,9 @@ class TeamMatches extends Component {
       (acc, eachMatch) => {
         if (eachMatch.match_status === 'Won') {
           acc.Won = (acc.Won || 0) + 1
-        } else {
+        } else if (eachMatch.match_status === 'Lost') {
           acc.Lost = (acc.Lost || 0) + 1
-        }
+        } else acc.Drawn = (acc.Drawn || 0) + 1
         return acc
       },
       {},
@@ -71,6 +71,7 @@ class TeamMatches extends Component {
     const TeamChartResult = [
       {name: 'Won', value: matchResult.Won},
       {name: 'Lost', value: matchResult.Lost},
+      {name: 'Drawn', value: matchResult.Drawn},
     ]
 
     this.setState({
@@ -102,7 +103,7 @@ class TeamMatches extends Component {
     return (
       <div className={`team-matches-bg ${eachTeamId}`}>
         {isLoading ? (
-          <div testid="loader">
+          <div>
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
