@@ -115,7 +115,7 @@ class TeamMatches extends Component {
             />
             <p className="latest-matches-title">Latest Matches</p>
             <LatestMatch latestMatchDetails={latestMatch} />
-
+            <PieChartComponent statistics={statistics} />
             <ul className="match-card-matches-list">
               {recentMatchesList.map(eachRecentMatch => (
                 <MatchCard
@@ -124,7 +124,6 @@ class TeamMatches extends Component {
                 />
               ))}
             </ul>
-            <PieChartComponent statistics={statistics} />
           </>
         )}
         <button
