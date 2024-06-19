@@ -103,7 +103,7 @@ class TeamMatches extends Component {
     return (
       <div className={`team-matches-bg ${eachTeamId}`}>
         {isLoading ? (
-          <div>
+          <div data-testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
